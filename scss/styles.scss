@@ -1,0 +1,114 @@
+$cssCore	:false;
+$devMode	:false;
+@import "ed-grid/ed-grid";
+
+
+$black:#222;
+$white:#eee;
+$bp-menu:l;
+
+/*header */
+.main-header{
+	background: white;
+}
+
+
+.logo{
+	display: block;
+	width: 150px;
+	margin: 7px 0;
+}
+.main-menu{
+	@include edMenu($bp-menu);
+	text-align: center;
+	&__link{
+		color: $black;
+		font-size: .95em;
+		display: block;
+		@include from($bp-menu){
+			height: 49px;
+			line-height: 49px;
+			&:hover {
+			box-shadow :0 -3px tomato inset;
+		}
+	}
+}
+
+}
+.main-nav{
+	@include edNav(right,$bp-menu);
+
+	&__item{
+		@include to($bp-menu){
+			border-bottom: 1 px solid rgba(#fff,15);
+		}
+	}
+
+	@include to($bp-menu){
+		margin-top: 49px;
+		align-self: stretch;
+		background: lighten($black,5);
+	}
+}
+
+
+.nav-toggle{
+	@include navToggle(15px,$black);
+	@include hideFrom($bp-menu);
+}
+
+
+.main-title{
+	 margin-top: 0;
+	 font-size: 1.7em;
+}
+.main-content {
+	line-height: 1.5;
+	font-size: .95em;
+
+
+}
+.main-center-word{
+	text-align: center;
+}
+
+.sidebar-block{
+	padding: 1em;
+	&__title{
+		margin: 0;
+		font-size: 1.2em;
+	}
+}
+
+a{
+	color: white;
+
+}
+
+.main-footer{
+	@include stickyFooter;
+	background: #151929;
+	color: $white;
+	text-align: center;
+	padding: 1em 0;
+	font-size: .9em;
+}
+.logo-footer{
+	width:150px;
+	margin-top: 20px;
+}
+
+
+@media (max-width: 1024px){
+
+	.main-menu{
+	@include edMenu($bp-menu);
+	text-align: center;
+	&__link{
+		color: $white;
+		font-size: .95em;
+		display: block;
+	}
+}
+
+}
